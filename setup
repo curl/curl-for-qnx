@@ -1,0 +1,5 @@
+# install path to SDK 7.0
+QNX700=$HOME/qnx700
+
+# install path to SDK 8.0
+QNX800=$HOME/qnx800
