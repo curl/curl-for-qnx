@@ -1,5 +1,11 @@
 # curl-for-qnx
-Scripts and configs for building curl for QNX
+
+Scripts and configs for building curl for [QNX](https://blackberry.qnx.com/).
+
+## Prerequisites
+
+1. Install the QNX SDK environments for 7.0, 7.1 and 8.0.
+2. Edit `setup` to make the path identify your chosen SDK install paths
 
 ## Howto
 
