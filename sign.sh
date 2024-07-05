@@ -1,5 +1,5 @@
 #!/bin/sh
-for a in _build/curl-*; do
+for a in _tarball/curl-*; do
     if test -n "$arg"; then
         arg=$(echo "&& $arg")
     fi
@@ -7,4 +7,3 @@ for a in _build/curl-*; do
 done
 echo "Run this to sign them:"
 echo "$arg"
-
