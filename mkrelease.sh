@@ -50,6 +50,11 @@ if [ -z "$QNX700" ]; then
     exit
 fi
 
+if [ -z "$QNX710" ]; then
+    echo "Set QNX710 in the setup file"
+    exit
+fi
+
 if [ -z "$QNX800" ]; then
     echo "Set QNX800 in the setup file"
     exit
@@ -57,7 +62,7 @@ fi
 
 
 # remove previous curl release leftovers
-rm -rf build-* _install
+rm -rf build-* _install _tarball
 
 # extract the release contents
 tar xf "$tarball"
@@ -122,6 +127,45 @@ make install >make-install.log  2>&1
 popd> /dev/null
 
 #
+# SDK 7.1 builds
+#
+
+. "$QNX710/qnxsdp-env.sh" 2>&1 > /dev/null
+
+## 7.1 for aarch64
+pushd build-71-aarch64 >/dev/null
+echo "7.1 aarch64"
+echo " - configure"
+sh ../conf/7.1-aarch64 >configure.log 2>&1
+echo " - build"
+make -sj >make.log 2>&1
+echo " - install"
+make install >make-install.log 2>&1
+popd > /dev/null
+
+## 7.1 for arlmle-v7
+pushd build-71-armle-v7 > /dev/null
+echo "7.1 armle-v7"
+echo " - configure"
+sh ../conf/7.1-armle-v7 >configure.log 2>&1
+echo " - build"
+make -sj >make.log 2>&1
+echo " - install"
+make install >make-install.log  2>&1
+popd> /dev/null
+
+## 7.1 for x86_64
+pushd build-71-x86_64 > /dev/null
+echo "7.1 x86_64"
+echo " - configure"
+sh ../conf/7.1-x86_64 >configure.log 2>&1
+echo " - build"
+make -sj >make.log 2>&1
+echo " - install"
+make install >make-install.log  2>&1
+popd> /dev/null
+
+#
 # SDK 8.0 builds
 #
 
@@ -150,8 +194,10 @@ make install >make-install.log  2>&1
 popd > /dev/null
 
 # generate the tarballs
-sh mkpkg.sh $buildver
+sh mkpkg-70.sh $buildver
+sh mkpkg-71.sh $buildver
+sh mkpkg-8.sh $buildver
 
-ls -l _build/curl-*
+ls -l _tarball/curl-*
 
 sh sign.sh
