@@ -10,7 +10,7 @@ curl packages for QNX are made available for download at
 ## Prerequisites
 
 1. Install the QNX SDK environments for 7.0, 7.1 and 8.0.
-2. Edit `setup` to make the path identify your chosen SDK install paths
+2. Edit `setup` to make the path identify your chosen SDP install paths
 
 ## Howto
 
