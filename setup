@@ -1,5 +1,8 @@
-# install path to SDK 7.0
+# install path to SDP 7.0
 QNX700=$HOME/qnx700
 
-# install path to SDK 8.0
+# install path to SDP 7.1
+QNX710=$HOME/qnx710
+
+# install path to SDP 8.0
 QNX800=$HOME/qnx800
