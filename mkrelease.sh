@@ -39,7 +39,7 @@ for dl in curl-*; do
 done
 
 if test "$i" -gt 1; then
-    echo "multiple curl-* entries found, disambiguate please"
+    echo "pre-existing curl-* entries found, disambiguate please"
     exit
 fi
 
