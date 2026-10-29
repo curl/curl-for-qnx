@@ -1,0 +1,11 @@
+# 
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include 
+
+Name: OpenSSL 3
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 3
+libs: -lssl3 -lcrypto3
+Cflags: -I/home/dast/qnx700/target/qnx7/usr/include/openssl3

@@ -99,7 +99,7 @@ echo "7.0 aarch64"
 echo " - configure"
 sh ../conf/7.0-aarch64 >configure.log 2>&1
 echo " - build"
-make -sj >make.log 2>&1
+make V=1 -sj >make.log 2>&1
 echo " - install"
 make install >make-install.log 2>&1
 popd > /dev/null
@@ -138,7 +138,7 @@ echo "7.1 aarch64"
 echo " - configure"
 sh ../conf/7.1-aarch64 >configure.log 2>&1
 echo " - build"
-make -sj >make.log 2>&1
+make V=1 -sj >make.log 2>&1
 echo " - install"
 make install >make-install.log 2>&1
 popd > /dev/null
@@ -164,6 +164,9 @@ make -sj >make.log 2>&1
 echo " - install"
 make install >make-install.log  2>&1
 popd> /dev/null
+
+# clear this for 8.0
+unset PKG_CONFIG_PATH
 
 #
 # SDK 8.0 builds

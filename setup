@@ -6,3 +6,6 @@ QNX710=$HOME/qnx710
 
 # install path to SDP 8.0
 QNX800=$HOME/qnx800
+
+# find openssl.pc here:
+export PKG_CONFIG_PATH=/home/dast/src/curl-for-qnx
